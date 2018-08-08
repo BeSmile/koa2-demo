@@ -1,11 +1,14 @@
 module.exports = {
 	app: {
-		port: 3000
+		port: 8888
 	},
 	redis: {
 		
 	},
 	mongodb: {
-		db: 'mongodb://127.0.0.1/node_club_dev'
+		db: 'mongodb://127.0.0.1/store',
+		config: {
+            server: {poolSize: 20},
+		}
 	}
-}
+};

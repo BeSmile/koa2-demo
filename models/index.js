@@ -1,15 +1,17 @@
 const mongoose = require('mongoose');
-const Goods = require('./goods');
+const autoIncrement = require('mongoose-auto-increment');
+
 const config =  require('../config/config.local');
 
-mongoose.connect(config.mongodb.db, {
-	server: {poolSize: 20}
-}, function (error) {
-	if (error) {
-		console.log(error);
-	    // logger.error('connect to %s error: ', config.db, err.message);
-	    process.exit(1);
-	}
-}),
+//建立连接
+const connection = mongoose.connect(config.mongodb.db, config.mongodb.config, (error) => {
+    if(error) {
+        process.exit(1);
+    }
+});
+require('./alarm_message');
+// mongoose.model('alarm_message', AlarmMessageSchema);//注册schema
 
-module.exports.GoodsModel =  mongoose.model('goods', Goods);
+
+
+
