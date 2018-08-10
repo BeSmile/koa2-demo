@@ -1,9 +1,11 @@
 const Koa = require('koa');
+const bodyParser = require('koa-bodyparser');
 const app = new Koa();
 const config = require('./config/config.local.js');
 const Router = require('koa-router');
-
+app.use(bodyParser());
 require('./models');
+
 const alarm_router = require('./routes/alarm_router');
 const router = new Router();
 // router.use('/ts', childs.routes(), childs.allowedMethods());

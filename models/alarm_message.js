@@ -8,6 +8,9 @@ const AlarmMessage = new Schema({
     updated_at: Number,
     status: Number,
     notice: String,
+    message: String,
+    operator: String,
+    remark: Array,
 });
 const model = mongoose.model('alarm_message', AlarmMessage);
 AlarmMessage.pre('save', function (next) {
