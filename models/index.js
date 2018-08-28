@@ -10,6 +10,8 @@ const connection = mongoose.connect(config.mongodb.db, config.mongodb.config, (e
     }
 });
 require('./alarm_message');
+require('./alarm_rule');
+require('./alarm_notice');
 // mongoose.model('alarm_message', AlarmMessageSchema);//注册schema
 
 
